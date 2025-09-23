@@ -1,0 +1,30 @@
+@page
+@model OTPTest.Api.Pages.Otp.VerifyModel
+@{
+    ViewData["Title"] = "Verify OTP";
+}
+
+<div class="card">
+    <h3>Verify OTP</h3>
+    <form method="post">
+        <input type="hidden" name="Email" value="@Model.Email" />
+        <div class="row">
+            <label for="email">Email</label>
+            <input type="email" id="email" value="@Model.Email" disabled />
+        </div>
+        <div class="row">
+            <label for="code">6-digit code</label>
+            <input type="text" id="code" name="Code" inputmode="numeric" pattern="\d{6}" maxlength="6" required />
+        </div>
+        <div class="row">
+            <button type="submit">Verify</button>
+            <a class="muted" style="margin-left: 1rem" href="/Otp/Request?email=@Model.Email">Resend</a>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="row @(Model.IsError ? "error" : "success")">@Model.Message</div>
+    }
+</div>
+

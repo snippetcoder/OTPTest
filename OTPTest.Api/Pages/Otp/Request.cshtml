@@ -1,0 +1,38 @@
+@page
+@model OTPTest.Api.Pages.Otp.RequestModel
+@{
+    ViewData["Title"] = "Request OTP";
+}
+
+<div class="card">
+    <h3>Request OTP</h3>
+    <form method="post">
+        <div class="row">
+            <label for="email">Enterprise Email</label>
+            <input type="email" id="email" name="Email" value="@Model.Email" required />
+            <div class="muted">Use your dso.org.sg email or subdomain.</div>
+        </div>
+        <div class="row">
+            <button type="submit">Send OTP</button>
+        </div>
+    </form>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="row @(Model.IsError ? "error" : "success")">@Model.Message</div>
+    }
+
+    @if (Model.Sent && Model.SecondsLeft > 0)
+    {
+        <div class="row">
+            <span class="muted">OTP valid for: <strong id="cd">@Model.SecondsLeft s</strong></span>
+        </div>
+        <div class="row">
+            <a href="/Otp/Verify?email=@Model.Email">Continue to Verify</a>
+        </div>
+        <script>
+            window.startCountdown(@Model.SecondsLeft, 'cd');
+        </script>
+    }
+</div>
+

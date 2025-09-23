@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "x20zvnCFHZX/cgXBdVPD++dooHT4aH+Gj559cSQMh1c=",
+  "Source": "OTPTest.Api",
+  "BasePath": "_content/OTPTest.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

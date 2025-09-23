@@ -1,0 +1,55 @@
+@{
+    var title = ViewData["Title"] as string ?? "OTP Demo";
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@title</title>
+    <style>
+        body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; margin: 2rem; }
+        .container { max-width: 560px; margin: 0 auto; }
+        header { margin-bottom: 1.5rem; }
+        label { display: block; font-weight: 600; margin-bottom: .25rem; }
+        input[type=email], input[type=text] { width: 100%; padding: .6rem .7rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; }
+        button { background: #1f6feb; color: white; padding: .6rem .9rem; font-size: 1rem; border-radius: 6px; border: none; cursor: pointer; }
+        button[disabled] { background: #94a3b8; cursor: not-allowed; }
+        .row { margin: .75rem 0; }
+        .muted { color: #64748b; font-size: .9rem; }
+        .error { color: #b91c1c; }
+        .success { color: #065f46; }
+        nav a { margin-right: 1rem; }
+        .card { padding: 1rem; border: 1px solid #e5e7eb; border-radius: 8px; }
+    </style>
+    @RenderSection("Head", required: false)
+    <script>
+        window.startCountdown = function (seconds, elId, onEnd) {
+            let left = seconds;
+            const el = document.getElementById(elId);
+            function tick() {
+                if (!el) return;
+                el.textContent = left + 's';
+                if (left <= 0) { if (onEnd) onEnd(); return; }
+                left--; setTimeout(tick, 1000);
+            }
+            tick();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2>OTP Demo</h2>
+            <nav>
+                <a href="/Otp/Request">Request OTP</a>
+                <a href="/Otp/Verify">Verify OTP</a>
+            </nav>
+        </header>
+        <main>
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>
+
