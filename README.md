@@ -16,6 +16,8 @@ The program is written using .NET Core Razor Pages codebase.
 
 ## Test Via Browser UI (recommended)
 
+<img width="1541" height="522" alt="image" src="https://github.com/user-attachments/assets/025e5726-06b1-4406-8103-a849f9211575" />
+
 ### Request OTP
 - Go to `https://localhost:5001/Otp/Request`
 - Enter an email ending with `dso.org.sg` (e.g., `tester@dept.dso.org.sg`) and click "Send OTP"
