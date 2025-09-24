@@ -2,6 +2,11 @@
 
 The program is written using .NET Core Razor Pages codebase.
 
+# Assumptions
+
+- Real email delivery will be provided by swapping DebugEmailSender with a production implementation of IEmailSender (SMTP/SES/etc.). Current implementation the app uses a debug sender that logs the OTP to the app output.
+- EF Code First is used with EnsureCreated() for schema creation (simple dev setup). You can switch to migrations later.
+
 ## Prerequisites To Test
 
 - Install Visual Studio 2022 (Community is fine) with "ASP.NET and web development"
